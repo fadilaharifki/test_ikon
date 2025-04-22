@@ -32,18 +32,18 @@ const ModalComponent: React.FC<ModalComponentProps> = ({
       animationType="slide"
       transparent={true}
       visible={visible}
-      onRequestClose={() => {
-        onClose;
-      }}>
+      onRequestClose={onClose}>
       <TouchableWithoutFeedback onPress={onClose}>
         <View style={styles.modalOverlay}>
-          <View style={[styles.modalContainer, containerStyle]}>
-            {title && (
-              <Text style={[styles.modalTitle, titleStyle]}>{title}</Text>
-            )}
-            <View>{children}</View>
-            {footer && <View>{footer}</View>}
-          </View>
+          <TouchableWithoutFeedback onPress={() => {}}>
+            <View style={[styles.modalContainer, containerStyle]}>
+              {title && (
+                <Text style={[styles.modalTitle, titleStyle]}>{title}</Text>
+              )}
+              <View>{children}</View>
+              {footer && <View>{footer}</View>}
+            </View>
+          </TouchableWithoutFeedback>
         </View>
       </TouchableWithoutFeedback>
     </Modal>
